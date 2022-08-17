@@ -1,0 +1,1 @@
+powershell -ExecutionPolicy Bypass -File "CommunityPowerEA_Custom_Indicators_Settings.ps1"
