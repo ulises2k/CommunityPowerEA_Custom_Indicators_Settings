@@ -6,7 +6,10 @@
 #powershell -ExecutionPolicy Bypass -File "CommunityPowerEA_MyDefault.ps1"
 #
 #
-Function Get-IniFile ([string]$FilePath) {
+Function Get-IniFile {
+    Param(
+        [string]$FilePath
+    )
     $ini = [ordered]@{}
     switch -regex -file $FilePath {
         "^\s*(.+?)\s*=\s*(.*)$" {
@@ -44,7 +47,10 @@ function Set-OrAddIniValue {
     $content | Set-Content $FilePath
 }
 
-Function ButtonConvertIndicator ([string]$FilePath) {
+Function ButtonConvertIndicator {
+    Param(
+        [string]$FilePath
+    )
     $mivalue = ''
     switch -regex -file $FilePath {
         "^\s*(.+?)\s*=\s*(.*)$" {
@@ -111,7 +117,7 @@ $button.Text = 'Convert Indicator Set to Comma Separated'
 $button2 = New-Object System.Windows.Forms.Button
 $button2.Location = '5,40'
 $button2.Size = '300,20'
-$button2.Text = 'Clear ListBox'
+$button2.Text = 'Clear'
 
 # Label
 $label = New-Object System.Windows.Forms.Label
